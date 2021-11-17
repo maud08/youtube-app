@@ -1,0 +1,10 @@
+@import '../../styles/variables';
+
+.header{
+    background: $primaryColor;
+}
+h1{
+    color: $white;
+    margin : 0;
+    padding: 0.5em;
+}
