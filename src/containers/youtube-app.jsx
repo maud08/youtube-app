@@ -3,19 +3,23 @@ import { useState } from "react";
 import Footer from "../components/footer/footer";
 import Header from "../components/header/header";
 import SearchBar from "../components/search-bar/search-bar";
-import { useYoutubeRequest } from '../hooks/request-hook';
+import VideoRequest from '../components/video-request/video-request';
 
 const YoutubeApp = () => {
 
-    const [isLoading, error, data] = useYoutubeRequest();
+    
     const [video, setVideo] = useState('');
-    const [listVideo, setListeVideo] = useState([]);
-    console.log(data)
+
     return(
         <>
             <Header />
             <main className={style.main}>
                 <SearchBar onSearch={(v) => setVideo(v)}/>
+                {!video ?(
+                    <p>Pas de vidéos trouvées</p>
+                ):(
+                    <VideoRequest video={video}/> // envois de la video a chercher venant du  searchbar en passant par le parent ( youtubeApp)
+                )}
             </main>
             <Footer/>
         </>
@@ -24,4 +28,4 @@ const YoutubeApp = () => {
 
 export default YoutubeApp;
 
-//TODO je récupére mes data il me reste a faire la liste et l'affichage de la vidéo
+//TODO Vooir dans video display pour récuper une seule video

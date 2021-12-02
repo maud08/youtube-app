@@ -1,4 +1,5 @@
 import style from './search-bar.module.scss'
+import PropTypes from "prop-types";
 import { useState } from "react";
 
 const SearchBar = ({onSearch}) => {
@@ -7,7 +8,7 @@ const SearchBar = ({onSearch}) => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        //On récuper la methode du parenet via les props 
+        //On récuper la methode du parent via les props 
         //Set de la query pour l'envoyer au parent 
         onSearch(query);;
         setQuery('');
@@ -19,6 +20,14 @@ const SearchBar = ({onSearch}) => {
             <button type="submit">Rechercher</button>
         </form>
     );
+}
+
+SearchBar.defaultProps = {
+    onSearch: () => {}
+}
+
+SearchBar.proTypes = {
+    onSearch : PropTypes.func
 }
 
 export default SearchBar;
