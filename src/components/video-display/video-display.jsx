@@ -1,21 +1,25 @@
 import YouTube from "react-youtube";
-import PropTypes, { array } from "prop-types";
+import PropTypes from 'prop-types';
 
-const VideoDisplay = (data) => {
-    console.log("diplsay props",data)
+const VideoDisplay = (video) => {
+    const videoId = video.id.videoId;
     return(
-        <>
-            {/* {id ? (
-                <p>Chargement</p>
-            ): (
-                <YouTube videoId={id.videoId}/>
-            )} */}
-        </>
+
+        <YouTube videoId={videoId} />
+          
     );
 }
 
-VideoDisplay.propTypes = {
-    data : array.isRequired
+
+
+VideoDisplay.defaultProps = {
+    id: ""
 }
+
+VideoDisplay.propTypes = {
+    videoId: PropTypes.string
+}
+
+
 
 export default VideoDisplay;

@@ -8,7 +8,7 @@ const SearchBar = ({onSearch}) => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        //On récuper la methode du parent via les props 
+        //On récupère la methode du parent via les props 
         //Set de la query pour l'envoyer au parent 
         onSearch(query);;
         setQuery('');

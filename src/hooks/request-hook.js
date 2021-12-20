@@ -13,7 +13,6 @@ export const useYoutubeRequest = (query) => {
         setError(null);
         setData(null);
         if(query === ''){
-            console.log("pas ok")
             setIsLoading(false);
             return
         }
@@ -24,12 +23,14 @@ export const useYoutubeRequest = (query) => {
                 key : REACT_APP_YOUTUBE_KEY
             }
         }).then(({data}) => {
+            
             setData(data.items)
         }).catch((error)=>{
             setError(error.message)
         }).finally(() => {
             setIsLoading(false)
         })
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     },[])
     return [isLoading, error, data];
 

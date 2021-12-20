@@ -18,7 +18,10 @@ const YoutubeApp = () => {
                 {!video ?(
                     <p>Pas de vidéos trouvées</p>
                 ):(
-                    <VideoRequest video={video}/> // envois de la video a chercher venant du  searchbar en passant par le parent ( youtubeApp)
+                   
+                    <div>
+                        <VideoRequest video={video}/>
+                    </div>
                 )}
             </main>
             <Footer/>
@@ -27,5 +30,3 @@ const YoutubeApp = () => {
 }
 
 export default YoutubeApp;
-
-//TODO Vooir dans video display pour récuper une seule video
